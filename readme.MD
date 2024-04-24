@@ -11,3 +11,7 @@ Advanced Message Queuing Protocol is a protocol used for sending messages betwee
 ### Slow subscriber simulation
 ![Slow subscriber simulation](assets/image1.png)
 It shows a total of about 21 queues because I ran the `cargo run` command 5 times. The delay comes from the line `thread::sleep(ten_millis);` in the subscriber program, which makes it pause for 10 milliseconds. This simulates a slow subscriber, causing the delay.
+
+### Running three subscriber
+![Running three subscriber](assets/image2.png)
+The chart shows that the queue count went to 13 when I ran 3 subscribers consecutively. This decrease is due to the subscriber implementing multithreading to handle multiple messages sent and received simultaneously from the publisher. Multithreading allows the messages to be processed in parallel across the three subscribers, enhancing the overall performance within that timeframe. 
